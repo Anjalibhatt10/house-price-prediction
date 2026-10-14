@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import pandas as pd
+from pathlib import Path
 
 
 # =========================================================
@@ -18,7 +19,10 @@ st.set_page_config(
 # LOAD MODEL
 # =========================================================
 
-model = joblib.load("models/house_price_model.pkl")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+MODEL_PATH = PROJECT_ROOT / "models" / "house_price_model.pkl"
+
+model = joblib.load(MODEL_PATH)
 
 
 # =========================================================
