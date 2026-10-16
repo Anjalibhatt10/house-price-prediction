@@ -1,114 +1,191 @@
-# House Price Prediction 🏠
+# 🏠 House Price Prediction using Machine Learning
 
-A beginner-friendly Machine Learning project that aims to predict house prices using property-related features.
+A Machine Learning project that predicts estimated house values using California housing data. This project covers the end-to-end ML workflow, from data analysis and model training to building and deploying a Streamlit web application.
+
+## 🌐 Live Demo
+
+🚀 **Try the app:** [House Price Predictor](https://house-price-prediction-tfv6pqybxm7fgta9yynr3p.streamlit.app/)
+
+💻 **GitHub Repository:** [Anjalibhatt10/house-price-prediction](https://github.com/Anjalibhatt10/house-price-prediction)
 
 ## 📌 Project Overview
 
-The goal of this project is to understand the fundamentals of Machine Learning by building a house price prediction model using Python and its data science libraries.
+The goal of this project is to understand how Machine Learning can learn patterns from historical housing data and use them to predict house values.
 
-The model uses property information to estimate a house's approximate price.
+This project explores data analysis, regression algorithms, model evaluation, feature importance, model saving, and web application deployment.
 
-## 🎯 Objectives
+Users can enter housing-related details through an interactive Streamlit interface and receive an estimated house value.
 
-- Understand and analyze housing data.
-- Explore relationships between property features and prices.
-- Learn data preprocessing and exploratory data analysis (EDA).
-- Build a supervised Machine Learning regression model.
-- Learn how to evaluate model performance.
-- Develop a simple web interface for predictions.
+## ✨ Features
+
+- Exploratory Data Analysis (EDA)
+- Data visualization and correlation analysis
+- Data preprocessing and train-test splitting
+- Linear Regression, Decision Tree, and Random Forest models
+- Model evaluation using MAE and R²
+- Cross-validation and hyperparameter experimentation
+- Random Forest feature importance visualization
+- Model saving and loading using Joblib
+- Interactive three-screen Streamlit application
+- GitHub version control and cloud deployment
+
+## 🧠 Machine Learning Workflow
+
+1. Load the California Housing dataset.
+2. Explore the data and understand its features.
+3. Analyze distributions, correlations, and potential outliers.
+4. Separate input features (`X`) and target (`y`).
+5. Split data into training and testing sets.
+6. Train and evaluate regression models.
+7. Experiment with model parameters.
+8. Select a Random Forest model for the application.
+9. Save the trained model using Joblib.
+10. Deploy the Streamlit application.
+
+## 🤖 Models Explored
+
+| Model | Purpose |
+|---|---|
+| Linear Regression | Establish a regression baseline |
+| Decision Tree Regressor | Learn nonlinear relationships and explore overfitting |
+| Random Forest Regressor | Combine multiple decision trees to improve predictions |
+
+**Current model:** Random Forest Regressor with 200 trees and a maximum depth of 20.
+
+### 📊 Model Evaluation
+
+Results from the current experiments:
+
+- **Test MAE:** approximately 0.3271
+- **Test R²:** approximately 0.8057
+- **Five-fold cross-validation MAE:** approximately 0.3338
+
+The target is expressed in units of $100,000. A test MAE of 0.3271 therefore corresponds to an average absolute prediction error of approximately $32,710 in the dataset's target units.
+
+These results come from the current evaluation setup and do not guarantee accuracy for every prediction.
+
+## 🗂️ Dataset
+
+This project uses the **California Housing dataset** provided by scikit-learn.
+
+It contains 20,640 observations and eight input features.
+
+| Feature | Description |
+|---|---|
+| `MedInc` | Median income for a census block group |
+| `HouseAge` | Median house age |
+| `AveRooms` | Average rooms per household |
+| `AveBedrms` | Average bedrooms per household |
+| `Population` | Census block group population |
+| `AveOccup` | Average household occupancy |
+| `Latitude` | Geographic latitude |
+| `Longitude` | Geographic longitude |
+
+**Target:** `MedHouseVal` — median house value, in units of $100,000.
+
+**Note:** This is California housing data, not Indian real-estate data. The current model uses regional housing statistics rather than individual-property details such as parking or bathrooms.
 
 ## 🛠️ Technologies Used
 
 - Python
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-- Jupyter Notebook
+- Pandas and NumPy
+- Matplotlib and Seaborn
 - Scikit-learn
 - Joblib
+- Jupyter Notebook
 - Streamlit
 - Git and GitHub
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```text
 house-price-prediction/
+├── models/
+│   └── house_price_model.pkl
 ├── notebooks/
 │   └── house_price_analysis.ipynb
 ├── src/
 │   └── app.py
-├── models/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
 ```
 
-## ⚙️ Installation and Setup
+## 🚀 Run Locally
 
 ### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Anjalibhatt10/house-price-prediction.git
-```
-
-### 2. Navigate to the project directory
-
-```bash
 cd house-price-prediction
 ```
 
-### 3. Create a virtual environment
+### 2. Create and activate a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-### 4. Activate the virtual environment
-
-For Windows PowerShell:
+On Windows PowerShell:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 5. Install dependencies
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 🚀 How to Run
-
-Open the Jupyter Notebook to explore the data, understand the analysis, and work through the model training process.
-
-To launch the Streamlit application, run:
+### 4. Start the application
 
 ```bash
 streamlit run src/app.py
 ```
 
-The application requires the trained model and any other required files to be available locally.
+The application should open in your browser.
 
-## 🧠 Machine Learning Concept
+## 🖥️ Application Flow
 
-House price prediction is a **supervised learning regression problem** because the model learns from examples with known prices and predicts a numerical value for a house.
+The app has three screens:
 
-## 📈 Future Improvements
+1. **Welcome Screen** — introduces the House Price Predictor.
+2. **House Details** — collects the eight features expected by the model.
+3. **Prediction Result** — displays the estimated house value.
 
-- Improve data cleaning and preprocessing.
-- Compare different regression algorithms.
-- Evaluate performance using appropriate regression metrics.
-- Improve prediction accuracy through feature engineering.
-- Enhance the Streamlit user interface.
-- Deploy the application online.
+## 📚 Key Learnings
+
+- Understanding supervised learning and regression
+- Exploratory data analysis and visualization
+- Preparing features and target variables
+- Understanding overfitting and model generalization
+- Comparing regression algorithms
+- Evaluating models with MAE and R²
+- Cross-validation and hyperparameter tuning
+- Interpreting feature importance
+- Saving and loading trained models
+- Integrating a trained model with Streamlit
+- Version control with Git and GitHub
+- Deploying a web application
+
+## 🔮 Future Improvements
+
+- Enhance the user interface and add more visualizations.
+- Improve input validation and error handling.
+- Experiment with additional regression algorithms.
+- Add automated tests and a reproducible training pipeline.
+- Explore an appropriate Indian housing dataset.
+- Incorporate individual-property features such as area, bedrooms, bathrooms, parking, and location when supported by suitable data.
 
 ## 👩‍💻 Author
 
 **Anjali Bhatt**
 
-GitHub: [Anjalibhatt10](https://github.com/Anjalibhatt10)
+Aspiring AI Engineer interested in Machine Learning, Python, data analysis, and practical AI applications.
+
+- **GitHub:** [Anjalibhatt10](https://github.com/Anjalibhatt10)
 
 ---
 
-*This project is part of my journey to learn Machine Learning and build practical AI projects.*
+*Built as a hands-on project to learn and practise the end-to-end Machine Learning workflow.*
